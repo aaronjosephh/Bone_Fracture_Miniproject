@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload X-ray Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Upload X-ray</h2>
+        <h4>Note that the system can only detect hand, elbow or shoulder bones. Uploading any other images can cause errors in results.</h4>
+
+        <form id="uploadForm">
+            <input type="file" id="fileInput" name="file" accept="image/*" required>
+            <button type="submit">GET RESULTS</button>
+        </form>
+
+        <!-- Image Preview Section -->
+        <div id="imagePreviewContainer" style="display: none;">
+            <h3>Preview:</h3>
+            <img id="imagePreview" style="max-width: 100%;"/>
+        </div>
+
+        <!-- Waiting Message -->
+        <p id="waitingMessage" style="color: blue; display: none;">Please wait for a few seconds while we get your result...</p>
+
+        <!-- Prediction Result Display -->
+        <div id="predictionResult" style="display: none;">
+            <h3 id="boneType"></h3>
+            <h3 id="fractureResult"></h3>
+        </div>
+        <p id="uploadError" style="color: red;"></p>
+
+        <!-- Logout & Navigation -->
+        <button id="logoutButton">Logout</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

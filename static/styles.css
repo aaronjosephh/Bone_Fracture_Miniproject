@@ -1,0 +1,248 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #a3c9f7, #6ab7ff); /* Bluish gradient */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Smooth Fade-in Effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Container */
+.container {
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 32px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.8s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Image Preview */
+#imagePreviewContainer {
+    margin-bottom: 20px;
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+#imagePreview {
+    max-width: 100%;
+    max-height: 300px;
+    margin-top: 10px;
+    border: 4px solid #5dade2;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+#imagePreview:hover {
+    transform: scale(1.05);
+}
+
+/* Input Fields */
+input[type="file"], input[type="text"], input[type="password"] {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+input[type="file"]:hover, input:focus {
+    border-color: #5dade2;
+    outline: none;
+    background-color: #e8f7ff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+button {
+    padding: 12px 30px;
+    background: linear-gradient(to right, #5dade2, #3a8fd7);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: uppercase;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button Hover & Click Effects */
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Ripple Effect */
+button::after {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: 50%;
+    left: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: 0.5s ease-out;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+}
+
+button:active::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Loading Effect */
+#waitingMessage {
+    color: #333;
+    font-size: 18px;
+    margin-top: 20px;
+    font-style: italic;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* Prediction Result */
+#predictionResult {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #4e4e4e;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+#predictionResult span {
+    font-size: 18px;
+}
+
+#predictionResult b {
+    color: #28a745;
+}
+
+/* Logout Button */
+#logoutButton {
+    background-color: #5dade2;
+    color: white;
+    padding: 12px 30px;
+    margin-top: 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#logoutButton:hover {
+    background-color: #3a8fd7;
+    transform: translateY(-3px);
+}
+
+/* Modal (Signup Success) */
+.modal {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    text-align: center;
+    width: 300px;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal.active {
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.modal button {
+    background: linear-gradient(to right, #007bff, #00d4ff);
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.modal button:hover {
+    background: #0091d5;
+}
+
+/* Error Messages */
+#error-message, #uploadError {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Success Message */
+.success-message {
+    color: green;
+    font-size: 14px;
+    margin-top: 10px;
+}
